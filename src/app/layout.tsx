@@ -29,28 +29,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-
-      >
-
-        <div className="h-screen bg-border md:bg-background p-0 px-0 md:p-6 md:px-6 flex flex-col"
-              // style={{ backgroundImage: "url('/g6.svg')",  backgroundSize:'100%', backgroundPositionX: '0%', backgroundPositionY:'100%',backgroundRepeat:'no-repeat'}}
-
-        >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div className="min-h-screen bg-border md:bg-background p-0 px-0 md:p-6 md:px-6 flex flex-col">
           <BlogContentProvider>
-
           <SectionProvider>
             <HeaderBar title="Tanvir Azad" subTitle="Frontend Engineer" pills={["web", "android", "ios"]} />
             <div className="flex-1 min-h-0 flex gap-4">
               <NavBar />
               <main className="flex-1 min-h-0">
-
                 {children}
               </main>
               <UrlBar />
-
             </div>
           </SectionProvider>
           </BlogContentProvider>

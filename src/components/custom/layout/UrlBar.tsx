@@ -47,7 +47,7 @@ function UrlList() {
           href={href}
           target={href.startsWith("http") ? "_blank" : undefined}
           rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-          className="flex items-center gap-3 transition-colors hover:text-primary/60"
+          className="flex items-center gap-3 transition-colors hover:text-primary/60 active:scale-99 active:opacity-70"
         >
           <Icon/>
           <span>{label}</span>
@@ -84,7 +84,7 @@ export function UrlSidebar() {
 export default function UrlBar() {
 
   return (
-    <div className="hidden md:flex p-6 rounded-2xl border-none bg-border backdrop-saturate-100 backdrop-blur-sm flex-col gap-6 sticky top-6 w-56">
+    <div className="hidden md:flex p-6 rounded-2xl border-none bg-border flex-col gap-6 sticky top-6 w-56">
       <UrlList />
     </div>
   );

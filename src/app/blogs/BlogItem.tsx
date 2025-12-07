@@ -12,7 +12,7 @@ export default function BlogItem({ id, subtitle, title, teaser, content }: Fires
   return (
     <button
       key={id}
-      className="bg-transparent border border-primary/20 hover:bg-primary/5 justify-between start cursor-pointer flex flex-col md:flex-row w-full p-4 rounded-xl"
+      className="bg-transparent border border-primary/20 hover:bg-primary/5 justify-between start cursor-pointer flex flex-col md:flex-row w-full p-4 rounded-xl active:scale-99 active:opacity-70"
       onClick={() =>
       {
         handleActiveBlogContent({

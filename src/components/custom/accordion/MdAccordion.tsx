@@ -16,7 +16,7 @@ export default function MdAccordion({
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value={title || ""}>
-        <AccordionTrigger className="py-0 pb-6">
+        <AccordionTrigger className="py-0 pb-6 active:scale-99 active:opacity-70">
           <div className="w-full flex flex-row items-center cursor-pointer">
             <Image
               src={image || "/null.webp"}

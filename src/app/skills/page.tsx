@@ -9,9 +9,7 @@ import MdAccordion from "@/components/custom/accordion/MdAccordion";
 
 function SkillItemWithList({ title, list, subtitle }: Omit<FirestoreDocType, "id">) {
   return (
-
     <div className="border border-primary/30 rounded-2xl p-4 mb-8">
-
       <div className="text-left flex flex-col w-full px-0 mb-4">
         <p className="font-bold">{title}</p>
         <p className="opacity-60 text-sm">{subtitle}</p>

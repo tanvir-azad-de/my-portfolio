@@ -19,7 +19,7 @@ export default function HeaderBar({ title, subTitle, pills }: Props) {
 
   const router = useRouter()
   return (
-    <header className="md:rounded-2xl sticky top-0 bg-border backdrop-saturate-100 backdrop-blur-sm border border-b-primary/30 md:border-none px-2 z-50 mx-0 md:px-4 py-3 md:mb-4 flex items-center justify-between shrink-0">
+    <header className="md:rounded-2xl sticky top-0 bg-border border border-b-primary/30 md:border-none px-2 z-50 mx-0 md:px-4 py-3 md:mb-4 flex items-center justify-between shrink-0">
       <div className="flex flex-row items-center ml-2 md:ml-0">
         <Image
           src={"/emoji.webp"}
