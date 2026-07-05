@@ -10,7 +10,10 @@ export default function BlogPage() {
   const { id } = useParams<{ id: string }>();
   const { activeBlogContent } = useBlogContents();
 
-  const hasLocalContent = !!activeBlogContent?.title && !!activeBlogContent?.content;
+  const hasLocalContent =
+    activeBlogContent?.id === id &&
+    !!activeBlogContent?.title &&
+    !!activeBlogContent?.content;
 
   const { data, loading, error } = useFirestoreCollection(id, hasLocalContent);
 
@@ -18,8 +21,10 @@ export default function BlogPage() {
 
   return (
     <MainContentContainer loading={loading} error={error}>
+
       <MarkdownView
         heading={blog.title}
+        image={blog.image}
         content={blog.content}
         className="prose max-w-none overflow-scroll"
       />

@@ -2,12 +2,14 @@
 
 import React, { createContext, useContext, useState } from "react";
 type BlogContent = {
+  id: string;
   title: string;
   content: string;
+  image?: string;
 }
 type BlogContentContextValue = {
   activeBlogContent: BlogContent | undefined;
-  handleActiveBlogContent: (text: BlogContent) => void;
+  handleActiveBlogContent: (text: BlogContent | undefined) => void;
 };
 
 const BlogContentContext = createContext<BlogContentContextValue | null>(null);

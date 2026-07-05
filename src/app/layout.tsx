@@ -34,12 +34,16 @@ export default function RootLayout({
           <BlogContentProvider>
           <SectionProvider>
             <HeaderBar title="Tanvir Azad" subTitle="Frontend Engineer" pills={["web", "android", "ios"]} />
-            <div className="flex-1 min-h-0 flex gap-4">
-              <NavBar />
-              <main className="flex-1 min-h-0">
+            <div className="flex-1 min-h-0 flex gap-4 items-start md:overflow-hidden">
+              <div className="hidden md:block sticky top-24 self-start h-[calc(100vh-8rem)]">
+                <NavBar />
+              </div>
+              <main className="flex-1 min-h-0 md:sticky md:self-start md:h-[calc(100vh-8rem)]">
                 {children}
               </main>
-              <UrlBar />
+              <div className="hidden md:block sticky top-24 self-start h-[calc(100vh-8rem)]">
+                <UrlBar />
+              </div>
             </div>
           </SectionProvider>
           </BlogContentProvider>

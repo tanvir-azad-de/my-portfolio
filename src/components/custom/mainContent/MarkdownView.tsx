@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkEmoji from "remark-emoji";
@@ -15,18 +16,31 @@ import "@/css/markdown.css";
 type Props = {
   content: string | undefined;
   heading?: string;
+  image?: string;
   className?: string;
 };
 
 export default function MarkdownView({
   content,
   heading,
+  image,
   className = "prose max-w-none",
 }: Props) {
   return (
     <div
-      className={`devto-article h-full w-full overflow-y-auto overflow-x-hidden ${className}`}
+      className={`devto-article h-full w-full overflow-y-auto overflow-x-hidden pb-10 ${className}`}
     >
+      {image && (
+        <div className="relative mb-6 w-full md:w-1/2 aspect-square overflow-hidden rounded-xl border border-border/60">
+          <Image
+            src={image}
+            alt={heading || "Blog image"}
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+      )}
       {heading && <h1 className="text-3xl font-bold mt-6 mb-4">{heading}</h1>}
 
       <ReactMarkdown

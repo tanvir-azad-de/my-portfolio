@@ -113,6 +113,28 @@
   
 }
 
+.devto-article {
+  scrollbar-color: var(--color-base-fg-soft) transparent;
+  scrollbar-width: thin;
+}
+
+.devto-article::-webkit-scrollbar {
+  width: 10px;
+}
+
+.devto-article::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.devto-article::-webkit-scrollbar-thumb {
+  background: var(--color-base-fg-soft);
+  border-radius: 9999px;
+}
+
+.devto-article::-webkit-scrollbar-thumb:hover {
+  background: var(--color-base-fg-soft);
+}
+
 /* Prevent horizontal overflow for general text and lists */
 .devto-article p,
 .devto-article li,

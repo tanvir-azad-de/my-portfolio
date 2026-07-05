@@ -13,14 +13,16 @@ export default function Blogs() {
     return (
         <MainContentContainer loading={loading} error={error}>
             <div className="flex flex-col gap-4 pb-6">
-                {data.map((blog) => (<BlogItem
-                    key={blog.id}
-                    id={blog.id}
-                    subtitle={blog.subtitle}
-                    title={blog.title}
-                    teaser={blog.teaser}
-                    content={blog.content}
-                />
+                {data.map((blog) => (
+                    <BlogItem
+                        key={blog.id}
+                        id={blog.id}
+                        subtitle={blog.subtitle}
+                        title={blog.title}
+                        teaser={blog.teaser}
+                        content={blog.content}
+                        image={blog.image}
+                    />
                 ))}
 
                 {data?.length > 0 && <div

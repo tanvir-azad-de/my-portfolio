@@ -74,7 +74,7 @@ export default function ContactForm() {
               <FormItem>
                 <FormLabel>Your name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ada Lovelace" {...field} className="border-primary/30 placeholder:text-primary/80"/>
+                  <Input placeholder="Ada Lovelace" {...field} className="border-primary/30 placeholder:text-primary/40"/>
                 </FormControl>
                 <FormMessage/>
               </FormItem>
@@ -87,7 +87,7 @@ export default function ContactForm() {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="you@example.com" {...field} className="border-primary/30 placeholder:text-primary/80"/>
+                  <Input type="email" placeholder="you@example.com" {...field} className="border-primary/30 placeholder:text-primary/40"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -104,7 +104,7 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel>Subject</FormLabel>
               <FormControl>
-                <Input placeholder="How can I help?" {...field}  className="border-primary/30 placeholder:text-primary/80"/>
+                <Input placeholder="How can I help?" {...field}  className="border-primary/30 placeholder:text-primary/40"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -119,7 +119,7 @@ export default function ContactForm() {
               <FormControl>
                 <Textarea
                   placeholder="Tell me a bit about your project or question…"
-                  className="min-h-[140px] resize-y border-primary/30 placeholder:text-primary/80"
+                  className="min-h-[140px] resize-y border-primary/30 placeholder:text-primary/40"
                   {...field}
                 />
               </FormControl>

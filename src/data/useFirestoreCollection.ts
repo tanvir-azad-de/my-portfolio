@@ -45,7 +45,7 @@ export function useFirestoreCollection(id?: string, hasLocalContent?: boolean) {
           });
 
           setData(sortedItems);
-          // setData(items);
+          console.log(sortedItems)
         }
       } catch (err) {
         console.error(err);

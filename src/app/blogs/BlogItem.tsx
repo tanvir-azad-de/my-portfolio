@@ -1,10 +1,11 @@
 "use client";
 
 import { useBlogContents } from "@/providers/BlogContentProvider";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function BlogItem({ id, subtitle, title, teaser, content }: FirestoreDocType) {
+export default function BlogItem({ id, title, teaser, content, image }: FirestoreDocType) {
   const router = useRouter()
 
   const { handleActiveBlogContent } = useBlogContents()
@@ -12,27 +13,34 @@ export default function BlogItem({ id, subtitle, title, teaser, content }: Fires
   return (
     <button
       key={id}
-      className="bg-transparent border border-primary/20 hover:bg-primary/5 justify-between start cursor-pointer flex flex-col md:flex-row w-full p-4 rounded-xl active:scale-99 active:opacity-70"
+      className="flex w-full cursor-pointer flex-col justify-between gap-4 rounded-xl border border-border/60 bg-card/60 p-4 text-left transition-colors duration-300 hover:bg-card/80 active:opacity-80 md:flex-row md:items-end"
       onClick={() =>
       {
         handleActiveBlogContent({
+          id,
           title,
-          content: content || ""
+          content: content || "",
+          image,
         })
         router.push(`blogs/${id}`)
       }
       }
     >
-      <div>
-        <p className="break-words text-left font-bold mb-1">{title}</p>
-        <p className="text-sm text-left break-words overflow-wrap-anywhere text-primary/80 line-clamp-2">
-          {teaser}
-        </p>
+      <div className="flex min-w-0 items-center gap-3">
+        <Image
+          src={image || "/null.webp"}
+          alt={title || "Blog thumbnail"}
+          width={56}
+          height={56}
+          className="size-14 shrink-0 rounded-md bg-border object-cover"
+        />
+        <div className="min-w-0">
+          <p className="mb-1 break-words font-semibold tracking-tight">{title}</p>
+          <p className="line-clamp-1 break-words text-sm opacity-80">
+            {teaser}
+          </p>
+        </div>
       </div>
-
-        <p className="text-xs text-primary text-left">
-          Published on {subtitle}
-        </p>
     </button>
   );
 }

@@ -14,28 +14,34 @@ export default function MdAccordion({
   content,
 }: Omit<FirestoreDocType, "id">) {
   return (
-    <Accordion type="single" collapsible>
-      <AccordionItem value={title || ""}>
-        <AccordionTrigger className="py-0 pb-6 active:scale-99 active:opacity-70">
-          <div className="w-full flex flex-row items-center cursor-pointer">
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem
+        value={title || "item"}
+        className="mb-4 overflow-hidden rounded-xl bg-card/60 transition-colors duration-300 data-[state=open]:bg-card/80"
+      >
+        <AccordionTrigger className="px-4 py-4 hover:no-underline active:opacity-80">
+          <div className="flex w-full cursor-pointer flex-row items-center">
             <Image
               src={image || "/null.webp"}
-              alt={title || ""}
+              alt={title || "Accordion item"}
               priority={true}
-              width={45}
-              height={45}
-              className="rounded-full bg-border border border-primary/10"
+              width={48}
+              height={48}
+              className="rounded-full bg-border object-cover"
             />
-            <div className="ml-4 text-left">
-              <p className="font-semibold">
+            <div className="ml-4 text-left leading-tight">
+              <p className="font-semibold tracking-tight">
                 {title}
               </p>
-              <p className="opacity-70">{subtitle}</p>
+              <p className="mt-1 text-sm opacity-70">{subtitle}</p>
             </div>
           </div>
         </AccordionTrigger>
-        <AccordionContent>
-          <MarkdownView content={content} className="prose max-w-none overflow-scroll" />
+        <AccordionContent className="px-4 pb-4 pt-1">
+          <MarkdownView
+            content={content}
+            className="prose prose-sm max-w-none overflow-auto pr-1"
+          />
         </AccordionContent>
       </AccordionItem>
     </Accordion>
