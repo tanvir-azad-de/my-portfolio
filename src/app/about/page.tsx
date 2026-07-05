@@ -35,11 +35,18 @@ function RotateWords({ words }: { words: string[]}) {
     )
 }
 export default function About() {
-    const { data, loading, error } = useFirestoreCollection();
+    const { data, loading: dataLoading, error } = useFirestoreCollection();
     const { handleActiveSection } = useSections();
+    const [isPending, startTransition] = React.useTransition();
+
+    const handleSectionClick = React.useCallback((section: (typeof sections)[number]) => {
+        startTransition(() => {
+            handleActiveSection(section);
+        });
+    }, [handleActiveSection]);
 
     return (
-        <MainContentContainer loading={loading} error={error}>
+        <MainContentContainer loading={dataLoading || isPending} error={error}>
             {data?.length > 0 &&
                 <div className="flex md:items-center flex-col gap-x-6 gap-y-6 pt-6 md:pt-12 md:align-middle align-middle md:h-max">
                     <Image
@@ -56,13 +63,13 @@ export default function About() {
                         <div className="flex flex-row gap-x-4">
                             <CustomButton
                                 text='My Projects'
-                                onClick={() => handleActiveSection(sections[1])}
+                                onClick={() => handleSectionClick(sections[1])}
                                 variant='primary'
                             />
 
                             <CustomButton
                                 text='Contact Me'
-                                onClick={() => handleActiveSection(sections[6])}
+                                onClick={() => handleSectionClick(sections[6])}
                                 variant='secondary'
                             />
                         </div>
